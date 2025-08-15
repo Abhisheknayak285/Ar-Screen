@@ -1,0 +1,119 @@
+/* Custom styles to supplement Tailwind */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+/* Aurora Background Effect */
+.aurora-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+    filter: blur(100px);
+    pointer-events: none;
+}
+.aurora-bg div {
+    position: absolute;
+    border-radius: 50%;
+}
+.aurora-shape1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(168, 85, 247, 0.5);
+    top: 10%;
+    left: 15%;
+    animation: move1 15s infinite alternate;
+}
+.aurora-shape2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(59, 130, 246, 0.5);
+    bottom: 10%;
+    right: 15%;
+    animation: move2 18s infinite alternate;
+}
+@keyframes move1 {
+    from { transform: translate(-50px, -50px) rotate(0deg); }
+    to { transform: translate(50px, 50px) rotate(180deg); }
+}
+@keyframes move2 {
+    from { transform: translate(50px, 50px) rotate(0deg); }
+    to { transform: translate(-50px, -50px) rotate(180deg); }
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+/* Spinner animation from the provided example */
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+ 
+.toolbar-icon {
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toolbar-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-icon.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #10B981; /* emerald-500 */
+}
+
+/* Dropdown transition */
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.dropdown-content.open {
+    max-height: 500px; /* Adjust as needed for content height */
+    transition: max-height 0.5s ease-in;
+}
+
+.chevron-icon {
+    transition: transform 0.3s ease;
+}
+.chevron-icon.rotate {
+    transform: rotate(180deg);
+}
+ 
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .footer-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
